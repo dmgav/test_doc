@@ -7,7 +7,6 @@ env:
     # - secure: "vxwIdGm1WhAad542sAyVjpwkFsv8Z68KwYqoj8//ndA7FklIJys0F6ciYUVToNh8680CDDg05uSgucO4anKWnhU/eiq3ObLPYZivJBmeQyjI3Z5LbpCvO9vJdgENFZeCT9LPz6yv2y8ez9sweM/vocXV0uzkKrYxGLneoLI/Jr1fPJyocI0QUORZzHhzFsuawSB+BgqwmkEJaSJn5ja85nIkhdEgkAWiWPvCfi2P10kn+cOl635NoC0GVZ65WpblowiQgZDEiBj/uAjP7oCoxIY6Mlx3xvNL9GGbAy85CcB9Ntu58CQDep+cROVJ9YcQrxZjFCx7KPAHLaiQkgZAl/nj9vkXVXByY0iORbREyq4o5R5Bma/Ytw7epzf8LmmPw+K2lC62uNS1ZYhvT58gH43TzSWLxvUydUe2nrPvUNZXTz6ypu0cpwh4gC/VtH532O6E+CWHXsl0w8pVIoVlweWoa8XWX9Xxyz9XziRJ1D76To6xsvaFDWdEFCPSNrxCj2wXCbIgizi/uYDLXZBVAoXLNoiVswpUyjoyLM0UqOpucQGU40n8MSRQzduJyh2rwm/zbzQMpU0qwYy6sovEoHwzkNqTNJWKH2BsOerJ2tduoCkOHPXWa0S/OYtT2dfBSruk4gpSyKKRl2FK9C74Y9m5f7RixnObCL7U555uliE="
     - SUBMIT_CODECOV: false
     - BUILD_DOCS: false
-    - DOCS_READY: false
     - GH_REF: github.com/dmgav/test-doc.git
 
 cache:
@@ -80,7 +79,6 @@ script:
   if [ $BUILD_DOCS == 'true' ]; then
     pip install -r requirements-docs.txt
     make -C docs html  # Build the documentation.
-    DOCS_READY = "true"  # Will be set only if docs are successfully built
     # doctr deploy --built-docs docs/_build/html .  # Publish the documentation.
   fi
 
@@ -95,4 +93,3 @@ deploy:
   local_dir: "docs/_build/html"
   on:
     branch: master
-    condition: $DOCS_READY == "true"
