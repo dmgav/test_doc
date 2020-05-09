@@ -79,7 +79,7 @@ script:
   if [ $BUILD_DOCS == 'true' ]; then
     pip install -r requirements-docs.txt
     make -C docs html  # Build the documentation.
-    DOCS_READY = true  # Will be set only if docs are successfully built
+    $DOCS_READY = true  # Will be set only if docs are successfully built
     # doctr deploy --built-docs docs/_build/html .  # Publish the documentation.
   fi
 
