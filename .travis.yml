@@ -92,7 +92,7 @@ deploy:
   local_dir: "docs/_build/html"
   on:
     branch: master
-    condition: $BUILD_DOCS == true && $TRAVIS_REPO_SLUG == "dmgav/test_doc" && $GITHUB_TOKEN IS present
+    condition: $BUILD_DOCS == true && $TRAVIS_REPO_SLUG == "dmgav/test_doc"  # && $GITHUB_TOKEN IS present
 
 # after_success:
 #  - if [ $SUBMIT_CODECOV == 'true' ]; then codecov; fi;
