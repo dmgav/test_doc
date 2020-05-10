@@ -63,7 +63,7 @@ install:
   - pip install .
   - conda list
   - pip list
-  - echo "TRAVIS_REPO_SLUG = $(TRAVIS_REPO_SLUG)"
+  - echo $TRAVIS_REPO_SLUG
 
 script:
 - python -c "import platform; import os; ver_installed = platform.python_version();
@@ -94,4 +94,4 @@ deploy:
   local_dir: "docs/_build/html"
   on:
     branch: master
-    condition: $BUILD_DOCS == 'true'
+    condition: $BUILD_DOCS = 'true' AND $TRAVIS_REPO_SLUG = "dmgav/test_doc"
