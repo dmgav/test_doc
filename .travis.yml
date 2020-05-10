@@ -63,8 +63,6 @@ install:
   - pip install .
   - conda list
   - pip list
-  - echo $TRAVIS_REPO_SLUG
-  - echo $fork
 
 script:
 - python -c "import platform; import os; ver_installed = platform.python_version();
@@ -87,12 +85,12 @@ script:
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  github_token: $GITHUB_TOKENa  # Set in the settings page of your repository, as a secure variable
   keep_history: true
   local_dir: "docs/_build/html"
   on:
     branch: master
-    condition: $BUILD_DOCS == true && $TRAVIS_REPO_SLUG == "dmgav/test_doca"  # && $GITHUB_TOKEN IS present
+    condition: $BUILD_DOCS == true && $TRAVIS_REPO_SLUG == "dmgav/test_doca"
 
 # after_success:
 #  - if [ $SUBMIT_CODECOV == 'true' ]; then codecov; fi;
