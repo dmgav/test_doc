@@ -63,7 +63,7 @@ install:
   - pip install .
   - conda list
   - pip list
-  - echo TRAVIS_REPO_SLUG = $TRAVIS_REPO_SLUG
+  - echo "TRAVIS_REPO_SLUG = ${TRAVIS_REPO_SLUG}"
 
 script:
 - python -c "import platform; import os; ver_installed = platform.python_version();
