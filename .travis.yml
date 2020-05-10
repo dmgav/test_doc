@@ -50,7 +50,8 @@ before_install:
     source ~/mc/etc/profile.d/conda.sh
     conda update conda --yes
     export CONDARC=ci/condarc
-
+    echo TRAVIS_REPO_SLUG = $TRAVIS_REPO_SLUG
+    
 install:
   - export GIT_FULL_HASH=`git rev-parse HEAD`
   - conda create -y -n testenv python=$TRAVIS_PYTHON_VERSION numpy=$NUMPY
