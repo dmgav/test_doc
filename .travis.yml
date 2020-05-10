@@ -51,7 +51,7 @@ before_install:
     conda update conda --yes
     export CONDARC=ci/condarc
     echo TRAVIS_REPO_SLUG = $TRAVIS_REPO_SLUG
-    
+
 install:
   - export GIT_FULL_HASH=`git rev-parse HEAD`
   - conda create -y -n testenv python=$TRAVIS_PYTHON_VERSION numpy=$NUMPY
@@ -89,9 +89,9 @@ script:
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $GITHUB_TOKENN  # Set in the settings page of your repository, as a secure variable
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   keep_history: true
   local_dir: "docs/_build/html"
   on:
     branch: master
-    condition: [ $BUILD_DOCS == 'true' ] && $GITHUB_TOKENN
+    condition: $BUILD_DOCS == 'true'
