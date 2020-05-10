@@ -94,4 +94,4 @@ deploy:
   local_dir: "docs/_build/html"
   on:
     branch: master
-    condition: $BUILD_DOCS = 'true' AND $TRAVIS_REPO_SLUG = "dmgav/test_doc"
+    condition: $BUILD_DOCS == 'true' AND $TRAVIS_REPO_SLUG == "dmgav/test_doc"
