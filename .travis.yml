@@ -64,6 +64,7 @@ install:
   - conda list
   - pip list
   - echo $TRAVIS_REPO_SLUG
+  - echo fork
 
 script:
 - python -c "import platform; import os; ver_installed = platform.python_version();
@@ -91,7 +92,7 @@ deploy:
   local_dir: "docs/_build/html"
   on:
     branch: master
-    condition: $BUILD_DOCS = true AND fork = false  # $TRAVIS_REPO_SLUG == "dmgav/test_doc"
+    condition: $BUILD_DOCS = true AND $TRAVIS_REPO_SLUG = "dmgav/test_doc"
 
 # after_success:
 #  - if [ $SUBMIT_CODECOV == 'true' ]; then codecov; fi;
