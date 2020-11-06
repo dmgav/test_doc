@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-About PyXRF
-===========
+About PyXRF!
+============
 
 PyXRF is a python-based sophisticated fluorescence analysis package for fitting and
 visualizing X-ray fluorescence data. This package contains a high-level fitting engine,
