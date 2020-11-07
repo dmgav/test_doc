@@ -36,7 +36,7 @@ jobs:
         touch docs/_build/html/.nojekyll
     - name: Install and configure dependencies
       run: |
-        sudo apt-get install node
+        sudo apt install nodejs
         sudo npm install -g --silent gh-pages@2.0.1
         git config user.email ${GITHUB_ACTOR}@bots.github.com
         git config user.name ${GITHUB_ACTOR}
