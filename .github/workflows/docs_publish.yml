@@ -23,8 +23,8 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt install redis
-        apt install nodejs  # For deployment
-        npm install -g --silent gh-pages@2.0.1   # For deployment
+        sudo apt install nodejs  # For deployment
+        sudo npm install -g --silent gh-pages@2.0.1   # For deployment
         python -m pip install --upgrade pip
         pip install numpy
         pip install .
@@ -43,5 +43,6 @@ jobs:
     - name: Deploy Docs
       env:
         REPO_URI: "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/dmgav/test_doc.git"
+        CACHE_DIR: ~/.node
       run: |
-        sudo gh-pages --repo ${REPO_URI} --dist docs/_build/html --dotfiles
+        gh-pages --repo ${REPO_URI} --dist docs/_build/html --dotfiles
