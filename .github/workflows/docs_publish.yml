@@ -8,7 +8,7 @@ on:
 jobs:
   build:
 
-    if: github.repository == 'dmgv/test_doc'
+    if: github.repository == 'dmgav/test_doc'
     runs-on: ubuntu-latest
     strategy:
       matrix:
