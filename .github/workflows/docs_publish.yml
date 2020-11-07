@@ -23,8 +23,8 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt install redis
-        sudo apt install nodejs  # For deployment
-        sudo npm install -g --silent gh-pages@2.0.1   # For deployment
+        apt install nodejs  # For deployment
+        npm install -g --silent gh-pages@2.0.1   # For deployment
         python -m pip install --upgrade pip
         pip install numpy
         pip install .
