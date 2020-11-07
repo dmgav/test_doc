@@ -34,11 +34,12 @@ jobs:
         make -C docs html  # Build the documentation.
         # Disable Jekyll theme
         touch docs/_build/html/.nojekyll
+    - name: Install and configure dependencies
+      run: |
+        npm install -g --silent gh-pages@2.0.1
+        git config user.email ${{ GITHUB_ACTOR }}@bots.github.com
+        git config user.name ${{ GITHUB_ACTOR }}
     - name: Deploy Docs
-      uses: JamesIves/github-pages-deploy-action@3.7.1
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages # The branch the action should deploy to.
-        FOLDER: docs/_build/html # The folder the action should deploy.
-        CLEAN: true # Automatically remove deleted files from the deploy branch
-        BASE_BRANCH: master
+      run: |
+        repo_uri="https://x-access-token:${{ GITHUB_TOKEN }}@github.com/dmgav/test_doc.git"
+        gh-pages --repo ${{ repo_uri }} --dist docs/_build/html
