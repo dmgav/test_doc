@@ -40,7 +40,7 @@ jobs:
       run: |
         git config user.email ${GITHUB_ACTOR}@bots.github.com
         git config user.name ${GITHUB_ACTOR}
-        echo "CACHE_DIR=/tmp/node" >> $GITHUB_ENV
+        echo 'CACHE_DIR="/tmp/node"' >> $GITHUB_ENV
     - name: Deploy Docs
       env:
         REPO_URI: "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/dmgav/test_doc.git"
