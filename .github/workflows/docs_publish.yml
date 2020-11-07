@@ -44,4 +44,4 @@ jobs:
       env:
         REPO_URI: "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/dmgav/test_doc.git"
       run: |
-        sudo gh-pages --repo ${REPO_URI} --dist docs/_build/html
+        sudo gh-pages --repo ${REPO_URI} --dist docs/_build/html --dotfiles
