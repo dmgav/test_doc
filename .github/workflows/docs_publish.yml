@@ -37,9 +37,9 @@ jobs:
     - name: Install and configure dependencies
       run: |
         npm install -g --silent gh-pages@2.0.1
-        git config user.email ${{ GITHUB_ACTOR }}@bots.github.com
-        git config user.name ${{ GITHUB_ACTOR }}
+        git config user.email ${GITHUB_ACTOR}@bots.github.com
+        git config user.name ${GITHUB_ACTOR}
     - name: Deploy Docs
       run: |
-        repo_uri="https://x-access-token:${{ GITHUB_TOKEN }}@github.com/dmgav/test_doc.git"
+        repo_uri="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/dmgav/test_doc.git"
         gh-pages --repo ${{ repo_uri }} --dist docs/_build/html
