@@ -2,7 +2,7 @@
 
 set -eu
 
-repo_uri="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+# repo_uri="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 remote_name="origin"
 main_branch="main"
 TARGET_BRANCH="gh-pages"
@@ -26,7 +26,7 @@ git checkout $TARGET_BRANCH
 
 # Remove all files and directories except hidden directories.
 #   -f - exits with 0 if there is not files to delete
-echo "Removing the all files files."
+echo "Removing the all files."
 rm -rf !(.*)
 
 echo "Copying files from build directory: ${BUILD_DIR}"
