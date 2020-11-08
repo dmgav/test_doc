@@ -44,6 +44,8 @@ rm -rf !\(.*\)
 
 echo "Copying files from build directory: ${BUILD_DIR}"
 cp -r "${GITHUB_WORKSPACE}/${BUILD_DIR}"/* .
+ls -al
+git diff
 git add .
 git commit -m "Deployed Docs"
 echo "Changes were committed."
