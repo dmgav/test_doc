@@ -37,5 +37,7 @@ jobs:
         # Disable Jekyll theme
         touch docs/_build/html/.nojekyll
     - name: Deploy Docs
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         ./.github/workflows/deploy_docs.sh
