@@ -27,7 +27,8 @@ git checkout $TARGET_BRANCH
 # Remove all files and directories except hidden directories.
 #   -f - exits with 0 if there is not files to delete
 echo "Removing the all files."
-rm -rf !(.*)
+#rm -rf !(.*)
+rm -rf *
 
 echo "Copying files from build directory: ${BUILD_DIR}"
 cp "${GITHUB_WORKSPACE}/${BUILD_DIR}/*" .
