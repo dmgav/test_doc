@@ -2,11 +2,13 @@
 
 set -eu
 
+# Set env variable 'BUILD_DIR' to point to the directory that contains documentation
+#   e.g BUILD_DIR="docs/build/html"
+
+
 REPO_URI="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 REMOTE_NAME="origin"
-#main_branch="main"
 TARGET_BRANCH="gh-pages"
-BUILD_DIR="docs/_build/html"
 
 #echo "Github Workspace: ${GITHUB_WORKSPACE}"
 #cd $GITHUB_WORKSPACE
