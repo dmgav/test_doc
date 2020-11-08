@@ -38,6 +38,7 @@ jobs:
         touch docs/_build/html/.nojekyll
     - name: Deploy Docs
       env:
+        BUILD_DIR: "docs/_build/html"
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         ./.github/workflows/deploy_docs.sh
