@@ -2,19 +2,19 @@
 
 set -eu
 
-# repo_uri="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-remote_name="origin"
-main_branch="main"
+REPO_URI="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+REMOTE_NAME="origin"
+#main_branch="main"
 TARGET_BRANCH="gh-pages"
 BUILD_DIR="docs/_build/html"
 
-echo "Github Workspace: ${GITHUB_WORKSPACE}"
-cd $GITHUB_WORKSPACE
-ls -al
-cd docs
-ls -al
-cd _build
-ls -al
+#echo "Github Workspace: ${GITHUB_WORKSPACE}"
+#cd $GITHUB_WORKSPACE
+#ls -al
+#cd docs
+#ls -al
+#cd _build
+#ls -al
 
 
 REPO_NAME=$(echo $GITHUB_REPOSITORY | awk -F '/' '{print $2}')
@@ -43,12 +43,16 @@ echo "Removing the all files."
 rm -rf !\(.*\)
 
 echo "Copying files from build directory: ${BUILD_DIR}"
-cp -r "${GITHUB_WORKSPACE}/${BUILD_DIR}"/* .
+# Copy everything including hidden files
+cp -r "${GITHUB_WORKSPACE}/${BUILD_DIR}"/. .
 ls -al
 git diff
 git add .
 git diff-index --quiet HEAD || git commit -am "Deployed Docs"
 echo "Changes were committed."
+
+git remote set-url "$REMOTE_NAME" "$REPO_URI" # includes access token
+git push --force-with-lease "$REMOTE_NAME" "$TARGET_BRANCH"
 
 #cd "$GITHUB_WORKSPACE"
 #
