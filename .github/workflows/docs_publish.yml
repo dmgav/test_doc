@@ -38,4 +38,4 @@ jobs:
         touch docs/_build/html/.nojekyll
     - name: Deploy Docs
       run: |
-        ./deploy_docs.sh
+        ./.github/workflows/deploy_docs.sh
