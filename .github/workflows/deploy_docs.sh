@@ -11,6 +11,11 @@ BUILD_DIR="docs/_build/html"
 echo "Github Workspace: ${GITHUB_WORKSPACE}"
 cd $GITHUB_WORKSPACE
 ls -al
+cd docs
+ls -al
+cd _build
+ls -al
+
 
 REPO_NAME=$(echo $GITHUB_REPOSITORY | awk -F '/' '{print $2}')
 echo "GitHub repository: ${GITHUB_REPOSITORY}"
