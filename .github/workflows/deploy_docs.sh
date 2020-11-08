@@ -33,6 +33,10 @@ cd $REPO_NAME
 echo "Checking out the target branch: ${TARGET_BRANCH}"
 git checkout $TARGET_BRANCH
 
+echo "Setting up Git user name and email ... (${GITHUB_ACTOR})"
+git config user.name "$GITHUB_ACTOR"
+git config user.email "${GITHUB_ACTOR}@bots.github.com"
+
 # Remove all files and directories except hidden directories.
 #   -f - exits with 0 if there is not files to delete
 echo "Removing the all files."
