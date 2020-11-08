@@ -48,6 +48,10 @@ ls -al
 git diff
 git add .
 git commit -m "Deployed Docs"
+if [ $? -ne 0 ]; then
+    echo "nothing to commit"
+    exit 0
+fi
 echo "Changes were committed."
 
 #cd "$GITHUB_WORKSPACE"
