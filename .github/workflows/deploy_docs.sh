@@ -8,6 +8,10 @@ main_branch="main"
 TARGET_BRANCH="gh-pages"
 BUILD_DIR="docs/_build/html"
 
+echo "Github Workspace: ${GITHUB_WORKSPACE}"
+cd $GITHUB_WORKSPACE
+ls -al
+
 REPO_NAME=$(echo $GITHUB_REPOSITORY | awk -F '/' '{print $2}')
 echo "GitHub repository: ${GITHUB_REPOSITORY}"
 echo "Repository name: ${REPO_NAME}"
@@ -27,8 +31,7 @@ git checkout $TARGET_BRANCH
 # Remove all files and directories except hidden directories.
 #   -f - exits with 0 if there is not files to delete
 echo "Removing the all files."
-#rm -rf !(.*)
-rm -rf *
+rm -rf !\(.*\)
 
 echo "Copying files from build directory: ${BUILD_DIR}"
 cp "${GITHUB_WORKSPACE}/${BUILD_DIR}/*" .
