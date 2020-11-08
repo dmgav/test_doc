@@ -47,11 +47,7 @@ cp -r "${GITHUB_WORKSPACE}/${BUILD_DIR}"/* .
 ls -al
 git diff
 git add .
-git commit -m "Deployed Docs"
-if [ $? -ne 0 ]; then
-    echo "nothing to commit"
-    exit 0
-fi
+git diff-index --quiet HEAD || git commit -am "Deployed Docs"
 echo "Changes were committed."
 
 #cd "$GITHUB_WORKSPACE"
