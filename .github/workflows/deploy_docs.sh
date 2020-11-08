@@ -39,7 +39,7 @@ echo "Removing the all files."
 rm -rf !\(.*\)
 
 echo "Copying files from build directory: ${BUILD_DIR}"
-cp "${GITHUB_WORKSPACE}/${BUILD_DIR}/*" .
+cp "${GITHUB_WORKSPACE}/${BUILD_DIR}"/* .
 git add .
 git commit -m "Deployed Docs"
 echo "Changes were committed."
