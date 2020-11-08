@@ -53,6 +53,7 @@ echo "Changes were committed."
 
 git remote set-url "$REMOTE_NAME" "$REPO_URI" # includes access token
 git push --force-with-lease "$REMOTE_NAME" "$TARGET_BRANCH"
+echo "Documents were published to '${TARGET_BRANCH}' branch."
 
 #cd "$GITHUB_WORKSPACE"
 #
