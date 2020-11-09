@@ -42,8 +42,3 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         ./.github/workflows/deploy_docs.sh
-      on:
-        push:
-          branches:
-            - master
-      if: github.repository == 'dmgav/test_doc'
